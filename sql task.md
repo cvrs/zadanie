@@ -1,11 +1,11 @@
 Create database vehicles ;
 Use vehicles
 
-Create table vehicles (vehicle_id int auto_increment, type varchar(20), primary key(vehicle_id) );
+Create table vehicles (vehicle_id int, type varchar(20), primary key(vehicle_id) );
 
-Create table cars (id_car int auto_increment, maker varchar(20), model varchar(20),  year int, nomer_kyzova int, engine¬¬_volume int, engine¬¬_power int, transmition_type char(1), seats int, color varchar(20), price money, primary key(id_car), foreign key(vehicle_id) references vehicles (vehicle_id) );
+Create table cars (car_id int, maker varchar(20), model varchar(20),  year int, nomer_kyzova int, engine¬¬_volume int, engine¬¬_power int, transmition_type char(1), seats int, color varchar(20), price int, primary key(car_id), foreign key(car_id) references vehicles (vehicle_id) );
 
-Create table motorcycles ( id_motorcycle int auto_increment, maker varchar(20), model varchar(20), year int,  nomer_kyzova int , engine¬-_volume int, engine¬¬_power int, transmition_type char(1), color varchar(20), price money, primary key(id_motorcycle), foreign key(vehicle_id) references vehicles (vehical_id) );
+Create table motorcycles ( motorcycle_id int, maker varchar(20), model varchar(20), year int,  nomer_kyzova int , engine¬¬_volume int, engine¬-_power int, transmition_type char(1), color varchar(20), price int, primary key(motorcycle_id), foreign key(motorcycle_id) references vehicles (vehical_id) );
 
 Insert into vehicles values ( ‘001’, ‘car’), (‘002’, ‘car’), (‘003’, ‘motorcycle’), (‘004’, ‘car’),( ‘005’, ‘car’), ( ‘006’, ‘motorcycle’), (‘007’, ‘car’) );
 
@@ -14,7 +14,8 @@ Insert into cars values (‘001’, ‘Toyota’, ‘Camry’, ‘2013’, ‘11
 Insert into motorcycles values (‘003’, ‘Kawasaki’, ‘Ninja’, ‘2013’, ‘33333333’, ‘250’, ‘35’, ‘m’, ‘black’, ‘18000’), (‘006’, ‘Suzuki’, ‘Bandit’, ‘2011’, ‘66666666’, ‘400’, ‘60’, ‘m’, ‘silver’, ‘12000’);
 
 
-Select id_car, maker from cars where maker like “m%”;
+Select car_id, maker from cars where maker like “m%”;
 Select * from cars, motorcycles where cars.color=motorcycles.color;
-Select Count(model) from motorcycle;
+Select Count(model) from motorcycles;
+
 
